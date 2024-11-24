@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Chat Room</title>
+    <script src="../auth.ts" module type="module" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        margin: 10px;
+        transition: background-color 0.3s;
+      }
+
+      input {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .password-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .eye-icon {
+        cursor: pointer;
+        margin-left: -30px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="nav-button" onclick="window.location.href='./index.html'">Home</button>
+    <div class="container">
+      <header class="header">
+        <h1>Enter Chat Room</h1>
+      </header>
+
+      <form id="auth-form">
+        <input id="name" type="text" placeholder="Name" required />
+        <input id="email" type="email" placeholder="Email" required />
+
+        <!-- 密码输入框 -->
+        <div class="password-container">
+          <input id="password" type="password" placeholder="Password" required />
+          <span id="toggle-password" class="eye-icon">🙈</span>
+          <!-- 眼睛图标 -->
+        </div>
+
+        <div class="button-group">
+          <button type="submit" id="register-button" class="button">Register</button>
+          <button type="submit" id="login-button" class="button">Login</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Justin Ankrom (jankrom)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="18351 class project" />
+    <link href="./styles.css" rel="stylesheet" type="text/css" />
+    <script src="../friends.ts" type="module" defer=""></script>
+    <title>YACA Friend List</title>
+    <style>
+        /* TODO */
+    </style>
+</head>
+
+<body>
+    <section class="body-container friend-body-container">
+        <div class="friend-list-container">
+            <div class="nav-container">
+                <a href="./index.html" class="left-nav-btn">
+                    <input id="homeBtn" class="input-btn" type="button" value="Home" />
+                </a>
+                <h1>My Friend List</h1>
+            </div>
+            <div id="friendList">
+                <div class="friend-container">
+                    <div class="friend-info">
+                        <div class="friend-name-container">
+                            <div class="box"></div>
+                            <div class="white-text">John Doe</div>
+                        </div>
+                        <img class="close-icon" src="./img/close-icon.svg" alt="Close svg" />
+                    </div>
+                    <div>
+                        <div class="friend-email">john.doe@somewhere.com</div>
+                    </div>
+                </div>
+                <div class="friend-container">
+                    <div class="friend-info">
+                        <div class="friend-name-container">
+                            <div class="box"></div>
+                            <div class="white-text">Justin Ankrom</div>
+                        </div>
+                        <img class="close-icon" src="./img/close-icon.svg" alt="Close svg" />
+                    </div>
+                    <div>
+                        <div class="friend-email">justin.ankrom@somewhere.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="newFriendForm" class="dark-blue-container">
+            <div class="new-friend-inputs-container">
+                <div class="input-container">
+                    <label for="friendName" class="white-text">Friend's Name:</label>
+                    <input class="input" type="text" id="friendName" name="friendName"
+                        placeholder="Friend's first and last name">
+                </div>
+                <div class="input-container">
+                    <label for="friendEmail" class="white-text">Friend's Email:</label>
+                    <input class="input" type="text" id="friendEmail" name="friendEmail"
+                        placeholder="myfriend@somedomain.co">
+                </div>
+            </div>
+            <input id="addFriendBtn" class="input-btn" type="submit" value="Add Friend" />
+        </form>
+    </section>
+</body>
+
+</html>

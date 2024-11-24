@@ -1,0 +1,8 @@
+// REST tests for navigation (static pages)
+// These simply return an HTML document
+
+// Home page, directly accessing the index.html file
+GET http://localhost:8080/auth
+
+
+### 

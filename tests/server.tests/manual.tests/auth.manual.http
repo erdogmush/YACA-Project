@@ -1,0 +1,38 @@
+// REST tests for authentication services (login and register)
+
+// create a user 
+POST http://localhost:8080/auth/users
+Content-Type: application/json
+
+{
+    "credentials": { "username": "jane@me.com",
+    "password": "bl@hbl@h1"
+    },
+    "extra": "Jane Doe"
+}
+
+###
+
+POST http://localhost:8080/auth/users
+Content-Type: application/json
+
+{
+    "credentials": { "username": "yichizhang@me.com",
+    "password": "yichz2@hbl@h"
+    },
+    "extra": "Yichi Zhang"
+}
+
+
+###
+
+// login for jane with correct password
+POST http://localhost:8080/auth/tokens/jane@me.com
+Content-Type: application/json
+
+{
+    "password": "bl@hbl@h1"
+}
+
+###
+

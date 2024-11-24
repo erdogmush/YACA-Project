@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend List</title>
+    <script src="../friends.ts" module type="module" defer=""></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .friends-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header-container {
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .header {
+            flex-grow: 1;
+            color: #333;
+            text-align: center;
+            font-size: 4vw;
+            font-weight: 550;
+            white-space: nowrap;
+            margin: 0 20px;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                font-size: 5vw;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .header {
+                font-size: 3vw;
+            }
+
+            .button {
+                padding: 18px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .home-button,
+        .sync-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .sync-button {
+            background-color: #aba6a6;
+        }
+
+        .friend-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .friend-item {
+            background-color: #5DADE2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .name-and-email {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .friend-item label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .friend-item input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 10px;
+        }
+
+        .friend-item p {
+            font-size: 1rem;
+            color: #f1f1f1;
+            margin-right: 20px;
+            font-weight: 500;
+            text-align: left;
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            width: 50vw;
+        }
+
+        .remove-friend {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .remove-friend:hover {
+            background-color: #e53e31;
+        }
+
+        /* Fixed form at the bottom */
+        .friend-input-form {
+            background-color: #71c6ff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid grey;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .friend-input-form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .clear-list {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .friend-input-form .button,
+        .clear-list .button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .friend-input-form label {
+            color: white;
+            text-align: left;
+        }
+
+        .friend-input-form .button:hover,
+        .clear-list .button:hover {
+            background-color: #0056b3;
+        }
+
+        input {
+            padding: 10px;
+            margin: 3px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .friend-info {
+            display: flex;
+            align-items: center;
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            width: 50vw;
+
+        }
+
+        .checkbox-container {
+            width: 100px;
+            /* Fixed width for checkbox */
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="friends-container">
+
+        <div class="header-container">
+            <button class="home-button" id="home-btn">Home</button>
+            <div class="header">My Friend List
+            </div>
+            <button class="sync-button" id="sync-btn">Sync</button>
+        </div>
+
+        <!-- Friend list container with scrolling -->
+        <div class="friend-list" id="friend-list">
+            <!-- Friend items will be added here -->
+        </div>
+
+        <!-- Clear List button -->
+        <div class="clear-list">
+            <button class="button" id="clear-list-btn">Clear List</button>
+        </div>
+
+        <!-- Fixed friend input form at the bottom -->
+        <div class="friend-input-form">
+            <div class="form-group">
+                <label for="friend-name">Friend's Name:</label>
+                <input type="text" id="friend-name" placeholder="Friend's first and last name" required>
+            </div>
+            <div class="form-group">
+                <label for="friend-email">Friend's Email:</label>
+                <input type="email" id="friend-email" placeholder="myfirend@somedomain.com" required>
+            </div>
+            <button class="button" id="add-friend-btn">Add Friend</button>
+        </div>
+    </div>
+</body>
+
+</html>
