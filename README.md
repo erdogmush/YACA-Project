@@ -1,5 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/sPVsZXcM)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=15700019)
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/sPVsZXcM) [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=15700019)
+
 # 18351-651 Class Project - Yet Another Chat App
 
 YACA implements a simple chat web app with a local friend list. This project is part of Yichi Zhang's 18351 class project
@@ -34,7 +34,7 @@ YACA implements a simple chat web app with a local friend list. This project is 
 
 Run `npm install` and then `npm update`. Fix vulnerabilities with `npm audit fix --force`. If `package-lock.json` is corrupted or out of date, regenerate it by running `npm update`.
 
-# Shh!
+# Shh
 
 SRV_ID:
 
@@ -48,7 +48,7 @@ PROD_DB:
 
 DEV_DB:
 
-RENDER_URL: 
+RENDER_URL:
 
 UPSTREAM_PAT: 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
 
